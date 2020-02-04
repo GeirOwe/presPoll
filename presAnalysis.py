@@ -21,7 +21,7 @@ pollDate = str(polls.iloc[1, 17])
 
 print()
 print('The poll was done: ' + pollDate)
-print('The size of the dataset: '+ str(polls.shape))
+#print('The size of the dataset: '+ str(polls.shape))
 print()
 print('------------------------------------')
 print('      DEMOCRATS')
@@ -30,8 +30,8 @@ print()
 #print likelihood of DEMS beeing elected
 stats = dems.groupby(['candidate_name'])['pct'].mean()
 statsDem = stats.sort_values(ascending=False)
-#print the 15 highest ranked candidates
-print(statsDem[:15])
+#print the 20 highest ranked candidates
+print(statsDem[:20])
 
 print()
 print('------------------------------------')
@@ -42,8 +42,8 @@ print()
 stats = reps.groupby(['candidate_name'])['pct'].mean()
 statsRep = stats.sort_values(ascending=False)
 
-#print the 15 highest ranked candidates
-print(statsRep[:15])
+#print the 20 highest ranked candidates
+print(statsRep[:20])
 
 
 
