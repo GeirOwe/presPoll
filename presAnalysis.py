@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 
 #use pandas to read the csv file into a DataFrame
-polls = pd.read_csv('president_primary_polls.csv')
+polls = pd.read_csv('data/president_primary_polls.csv')
 
 #print(polls.dtypes) - the columns names and their data types
 #print(polls.describe())
