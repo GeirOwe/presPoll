@@ -1,15 +1,21 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
     <head>
         {% if title %}
         <title>{{ title }} - US Election</title>
         {% else %}
-        <title>Stas for the US election</title>
+        <title>Stats for the US election</title>
         {% endif %}
     </head>
     <body>
-        <h1>Hi, {{ user.username }}!</h1>
+      {% extends "template.html" %}
+      {% block content %}
+
+        <h1>{{ user.username }}</h1>
         {% for post in posts %}
         <div><p>{{ post.candidate }}</b></p></div>
         {% endfor %}
+
+      {% endblock %}
     </body>
 </html>

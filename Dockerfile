@@ -17,14 +17,13 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Copy the files you have created earlier into our image 
 # for the app to run
-COPY presAnalysis.py .
-COPY templates/index.html templates/
-
+COPY main.py .
+COPY templates/*.html templates/
+COPY static/css/template.css static/css
 COPY data/president_primary_polls.csv data/
-#COPY president_primary_polls.csv .
 
 # tell the port number the container should expose
 EXPOSE 5000
 
 # the command for running the application
-CMD ["python3", "presAnalysis.py"]
+CMD ["python3", "main.py"]
