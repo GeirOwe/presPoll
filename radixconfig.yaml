@@ -1,16 +1,20 @@
-apiVersion: radix.equinor.com/v1
-kind: RadixApplication
-metadata:
-    name: main
-spec:
-    build:
-        environments:
-            - name: dev
-              build:
-                from: master
-    components:
-        - name: frontend
-          ports:
-            - name: http
-              port: 5000
- 
+{
+    "apiVersion": "radix.equinor.com/v1",
+    "kind": "RadixApplication",
+    "metadata": { "name": "presPoll" },
+    "spec": {
+        "environments": [
+            { "name": "dev", "build": { "from": "master" } }
+        ],
+        "components": [
+            {
+                "name": "main",
+                "src": ".",
+                "publicPort": "http",
+                "ports": [
+                    { "name": "http", "port": 5000 }
+                ]
+            }
+        ]
+    }
+}
