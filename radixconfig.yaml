@@ -1,0 +1,16 @@
+apiVersion: radix.equinor.com/v1
+kind: RadixApplication
+metadata:
+    name: main
+spec:
+    build:
+        environments:
+            - name: dev
+              build:
+                from: master
+    components:
+        - name: frontend
+          ports:
+            - name: http
+              port: 5000
+ 
