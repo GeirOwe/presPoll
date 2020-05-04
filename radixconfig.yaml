@@ -10,6 +10,7 @@
             {
                 "name": "main",
                 "src": ".",
+                "public": "true",
                 "publicPort": "http",
                 "ports": [
                     { "name": "http", "port": 5000 }
