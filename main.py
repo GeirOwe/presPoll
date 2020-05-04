@@ -43,7 +43,7 @@ statsRep = REP(polls)
 #convert from pandas series to pandas dataframe to be able to access the elements
 dfRep = statsRep.to_frame()
 
-
+#for test purposes
 print('')
 print('starting ....')
       
