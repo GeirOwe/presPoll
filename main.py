@@ -62,6 +62,7 @@ def dems():
     ]
     return render_template('dems.html', title='Home', user=user, posts=posts)
 
+#the page for the REPublicans
 @app.route('/reps')
 def reps():
     user = {'username': 'Republicans'}
