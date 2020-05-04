@@ -17,7 +17,7 @@ def DEM(polls):
     statsDem = stats.sort_values(ascending=False)
     return statsDem
 
-#REP function
+#reading the CSV file
 def REP(polls):
     #data for REP's
     reps = polls.loc[polls["party"] == "REP"]
