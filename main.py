@@ -1,3 +1,4 @@
+#this programme reads a poll statistics on the US Election 2020 and rankes the candidates with most votes
 from flask import Flask, render_template
 import numpy as np
 import pandas as pd
