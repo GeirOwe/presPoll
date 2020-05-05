@@ -91,7 +91,7 @@ def about():
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
 
-#to run it:
+# to run it:
 # In your Terminal or Command Prompt go to the folder that contains your main.py.
 # Then do py main.py or python main.py. In your terminal or command prompt you should see this output.
 #
