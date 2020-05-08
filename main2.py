@@ -13,10 +13,19 @@ app = Flask(__name__)
 #reading the CSV file
 def DEM(polls):
     #data for DEM's
+    #print(type(polls))
     dems = polls.loc[polls["party"] == "DEM"]
+    #print(type(dems))
     #sort likelihood of DEMS candidates beeing elected
-    stats = dems.groupby(['candidate_name'])['pct'].mean()
+    #print(dems.dtypes)
+    #print(dems['candidate_name'])
+    #print(dems.shape)
+    #stats = dems.groupby(['candidate_name'])['pct'].mean()
+    stats = dems.groupby('candidate_name')['pct'].mean()
+    #print(type(stats))
+    #print(stats)
     statsDem = stats.sort_values(ascending=False)
+    #print(type(statsDem))
     return statsDem
 
 #reading the CSV file
@@ -43,13 +52,22 @@ print('starting ....')
 
 #DEMOCRATS
 statsDem = DEM(polls)
+#print(type(statsDem))
 #convert from pandas series to pandas dataframe to be able to access the elements
 dfDem = statsDem.to_frame()
+#print(type(dfDem))
+#print(dfDem)
+#print(dfDem.dtypes)
+xName = str(dfDem.iloc[0:1,0:1]).strip('pct\ncandidate_name ')
+print(xName)
+xName = str(dfDem.iloc[1:2,0:1]).strip('pct ')
+print(xName)
 
 #REPULICANS
 statsRep = REP(polls)
 #convert from pandas series to pandas dataframe to be able to access the elements
 dfRep = statsRep.to_frame()
+
 
       
 #the starting page: ./
@@ -58,7 +76,7 @@ dfRep = statsRep.to_frame()
 def dems():
     user = {'username': 'Democrats'}
     posts = [
-        {'candidate': str(dfDem.iloc[0:1,0:1]).strip('pct\ncandidate_name  ')},
+        {'candidate': str(dfDem.iloc[0:1,0:1]).strip('pct\ncandidate_name ')},
         {'candidate': str(dfDem.iloc[1:2,0:1]).strip('pct\ncandidate_name  ')},
         {'candidate': str(dfDem.iloc[2:3,0:1]).strip('pct\ncandidate_name  ')},
         {'candidate': str(dfDem.iloc[3:4,0:1]).strip('pct\ncandidate_name  ')},
@@ -77,7 +95,7 @@ def reps():
         {'candidate': str(dfRep.iloc[2:3,0:1]).strip('pct\ncandidate_name  ')},
         {'candidate': str(dfRep.iloc[3:4,0:1]).strip('pct\ncandidate_name  ')},
         {'candidate': str(dfRep.iloc[4:5,0:1]).strip('pct\ncandidate_name  ')},
-        {'candidate': str(dfRep.iloc[5:6,0:1]).strip('pct\ncandidate_name ')}
+        {'candidate': str(dfRep.iloc[5:6,0:1]).strip('pct\ncandidate_name  ')}
     ]
     return render_template('reps.html', title='Home', user=user, posts=posts)
 
