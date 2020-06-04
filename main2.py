@@ -4,6 +4,7 @@ from flask import Flask, render_template
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import re
 from datetime import datetime
 
 # __name__ means this current file. In this case, it will be newMain.py.
@@ -52,16 +53,18 @@ print('starting ....')
 
 #DEMOCRATS
 statsDem = DEM(polls)
-#print(type(statsDem))
+
 #convert from pandas series to pandas dataframe to be able to access the elements
 dfDem = statsDem.to_frame()
-#print(type(dfDem))
-#print(dfDem)
-#print(dfDem.dtypes)
+
+#remove the initial column reerences
 xName = str(dfDem.iloc[0:1,0:1]).strip('pct\ncandidate_name ')
-print(xName)
-xName = str(dfDem.iloc[1:2,0:1]).strip('pct ')
-print(xName)
+
+# Splitting text and number in string  
+yPct = re.findall("\d+\.\d+", xName)[0] #d refers to any number and we include decimals
+yName = xName.strip(yPct) #remove the pct from the string and keep name
+print('Name: ', str(yName))
+print('Percent: ', str(yPct))
 
 #REPULICANS
 statsRep = REP(polls)
@@ -76,7 +79,8 @@ dfRep = statsRep.to_frame()
 def dems():
     user = {'username': 'Democrats'}
     posts = [
-        {'candidate': str(dfDem.iloc[0:1,0:1]).strip('pct\ncandidate_name ')},
+       # {'candidate': str(dfDem.iloc[0:1,0:1]).strip('pct\ncandidate_name ')},
+        {'candidate': str(yName) + ': ' +str(yPct) + '%'},
         {'candidate': str(dfDem.iloc[1:2,0:1]).strip('pct\ncandidate_name  ')},
         {'candidate': str(dfDem.iloc[2:3,0:1]).strip('pct\ncandidate_name  ')},
         {'candidate': str(dfDem.iloc[3:4,0:1]).strip('pct\ncandidate_name  ')},
