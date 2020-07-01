@@ -4,7 +4,7 @@
     "metadata": { "name": "prespoll" },
     "spec": {
         "environments": [
-            { "name": "dev", "build": { "from": "master" } }
+           { "name": "dev", "build": { "from": "master" } }
         ],
         "components": [
             {
