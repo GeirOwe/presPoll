@@ -13,7 +13,7 @@
                 "public": "true",
                 "publicPort": "http",
                 "ports": [
-                    { "name": "http", "port": 5000 }
+                     { "name": "http", "port": 5000 }
                 ]
             }
         ]
