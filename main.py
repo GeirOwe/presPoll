@@ -85,6 +85,7 @@ print('Percent: ', str(rep1Pct))
 #retrieve second REP candidate
 #remove the initial column reerences
 xName = str(dfRep.iloc[1:2,0:1]).strip('pct\ncandidate_name ')
+
 # Splitting text and number in string  
 rep2Pct = re.findall("\d+\.\d+", xName)[0] #d refers to any number and we include all decimals thru d+
 rep2Name = xName.strip(rep2Pct) #remove the pct from the string and keep name
