@@ -94,8 +94,13 @@ rep2Pct = re.findall("\d+\.\d", xName)[0] #d refers to any number and we include
 print('Name: ', str(rep2Name))
 print('Percent: ', str(rep2Pct))
       
-#the starting page: ./
+#the starting page: ./ - the poll for the presidential election
 @app.route('/')
+@app.route("/home")
+def home():
+    return render_template("home.html")
+
+#the page for the DEMocrats    
 @app.route('/dems')
 def dems():
     user = {'username': 'Democrats'}
@@ -115,9 +120,7 @@ def reps():
     ]
     return render_template('reps.html', title='Home', user=user, posts=posts)
 
-@app.route("/home")
-def home():
-    return render_template("home.html")
+
 
 #another page page: ./about
 @app.route("/about")
