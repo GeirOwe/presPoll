@@ -115,7 +115,7 @@ def reps():
     ]
     return render_template('reps.html', title='Home', user=user, posts=posts)
 
-@app.route("/")
+@app.route("/home")
 def home():
     return render_template("home.html")
 
