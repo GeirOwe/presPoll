@@ -21,6 +21,7 @@ COPY main.py .
 COPY templates/*.html templates/
 COPY static/css/template.css static/css
 COPY data/president_primary_polls.csv data/
+COPY data/electionpoll.jpg data/
 
 # tell the port number the container should expose
 EXPOSE 5000
